@@ -1,0 +1,24 @@
+<!--a <SLOT> is a placeholder inside a child component where
+    parent-provided content will be injected.  -->
+
+<!-- Basic Example of SLot-->
+
+<div id="app">
+    <alert-box>
+        Server is down
+    </alert-box>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script>
+    Vue.component("alert-box", {
+        template: `
+        <div class="alert">
+            <strong>Notice:</strong>
+            <slot></slot>
+        </div>
+        `,
+    });
+
+    new Vue({ el: "#app" })
+</script>

@@ -1,0 +1,47 @@
+<div id="app">
+    <h2>🛒 Cart Items: {{ cartCount }}</h2>
+
+    <product-card
+        v-for="item in products"
+        :key="item.id"
+        :product="item"
+        @add-to-cart="increaseCart">
+    </product-card>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<script>
+Vue.component('product-card', {
+    props: ['product'],
+    template: `
+        <div style="border:1px solid #aaa; margin:10px; padding:10px;">
+            <h3>{{ product.name }}</h3>
+            <p>₹{{ product.price }}</p>
+            <button @click="addToCart">Add to Cart</button>
+        </div>
+    `,
+    methods: {
+        addToCart() {
+            this.$emit('add-to-cart', this.product)
+        }
+    }
+})
+
+new Vue({
+    el: '#app',
+    data: {
+        cartCount: 0,
+        products: [
+            { id: 1, name: 'Laptop', price: 50000 },
+            { id: 2, name: 'Mobile', price: 20000 }
+        ]
+    },
+    methods: {
+        increaseCart(product) {
+            this.cartCount++
+            console.log('Added:', product.name)
+        }
+    }
+})
+</script>

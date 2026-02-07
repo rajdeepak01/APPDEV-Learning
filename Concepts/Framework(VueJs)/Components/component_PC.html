@@ -1,0 +1,32 @@
+<!-- 
+Parent and Child Component
+
+* Parent: The Vue instance or component tht uses a child
+component's tag in its templates.
+
+* Child: The component defined separately that recives data
+via props and renders its template. 
+-->
+<!-- Example -->
+<script>
+    // Child Component (declares props):
+    Vue.component('child-component', {
+        props: ["message"],
+        template: '<p>Child says: {{message}}</p>'
+    });
+</script>
+
+<!-- // Parent(passes props): -->
+<div id="app">
+    <!-- static string prop -->
+    <child-comp message="Hello from parent!"></child-comp>
+    <!-- dynamic prop bound to parent data -->
+     <child-comd :message="parentMsg"></child-comd>
+</div>
+
+<script>
+    new Vue({
+        el:'#app',
+        data: { parentMsg: "Dynamic Hello!"}
+    })
+</script>

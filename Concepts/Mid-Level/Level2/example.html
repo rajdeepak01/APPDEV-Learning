@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<button onclick="demo()">Click</button>
+<p id="text"></p>
+
+<script>
+async function demo() {
+  document.getElementById("text").innerText = "Hello";
+
+  await new Promise(r => setTimeout(r, 1000));
+
+  document.getElementById("text").innerText += " World";
+}
+</script>
+
+</body>
+</html>

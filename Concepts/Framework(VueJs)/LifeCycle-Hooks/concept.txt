@@ -1,0 +1,26 @@
+1) Creation   Hook: beforeCreate
+=> before data and events are setup
+
+Hook: created 
+=>After data and methods are ready
+
+2) Mounting
+Hook: beforeMount
+=> Before template is added to the page
+
+Hook: mounted
+=> After template is on the page
+
+3) Updating
+Hook: beforeUpdate
+=> Before DOM updates after data change
+
+Hook: updated
+=> after DOM updates
+
+4) Destruction
+Hook: beforeDestroy
+=> before component is distroyed
+
+Hook: destroyed
+=> after its removed from the DOM.

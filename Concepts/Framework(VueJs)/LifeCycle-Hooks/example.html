@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vue 2 Lifecycle Demo</title>
+
+    <!-- Vue 2 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+        }
+        .box {
+            border: 2px solid #42b983;
+            padding: 15px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Vue 2 Lifecycle Hooks – Single Page Example</h2>
+
+<div id="app">
+    <button @click="count++">Update Count</button>
+    <button @click="destroyComponent">Destroy Component</button>
+
+    <div class="box" v-if="show">
+        <p id="text">Count: {{ count }}</p>
+    </div>
+</div>
+
+<script>
+new Vue({
+    el: "#app",
+
+    data: {
+        count: 0,
+        show: true
+    },
+
+    /* 1️⃣ CREATION */
+    beforeCreate() {
+        console.log("beforeCreate → data not ready");
+    },
+
+    created() {
+        console.log("created → data is ready:", this.count);
+    },
+
+    /* 2️⃣ MOUNTING */
+    beforeMount() {
+        console.log("beforeMount → DOM not ready");
+    },
+
+    mounted() {
+        console.log("mounted → DOM ready");
+        console.log("Text:", document.getElementById("text").innerText);
+    },
+
+    /* 3️⃣ UPDATING */
+    beforeUpdate() {
+        console.log("beforeUpdate → data changed, DOM not updated yet");
+    },
+
+    updated() {
+        console.log("updated → DOM updated, count =", this.count);
+    },
+
+    /* 4️⃣ DESTRUCTION */
+    beforeDestroy() {
+        console.log("beforeDestroy → cleaning up");
+    },
+
+    destroyed() {
+        console.log("destroyed → component removed");
+    },
+
+    methods: {
+        destroyComponent() {
+            this.show = false;
+            this.$destroy();
+        }
+    }
+});
+</script>
+
+</body>
+</html>

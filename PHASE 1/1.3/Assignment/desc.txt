@@ -1,1 +1,0 @@
-ASSIGNMENT: Add a 5-second timeout that shows "Taking too long!" if not loaded.

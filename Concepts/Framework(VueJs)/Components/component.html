@@ -1,0 +1,46 @@
+<!-- * what is vue component?
+
+=> reusable block of code that controls part of your webpage.
+it has its own structure HTML, CSS and logic (JS).
+
+if not use component code become repetitive and hard to maintain
+-->
+
+<!-- Without component -->
+<div id="app">
+    <h2>Welcome to My App</h2>
+    <p>User Name: John</p>
+    <p>User Age: 25</p>
+
+    <h2>Welcome to My App</h2>
+    <p>User Name: Mary</p>
+    <p>User Age: 22</p>
+</div>
+ 
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: "#app"
+    });
+</script>
+
+<!-- With Component -->
+
+<div id="app">
+    <user-card name="John" age="25"></user-card>
+    <user-card name="Mary" age="22"></user-card>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script>
+    vue.component("user-card",{
+        // props are like function parameters-> they pass data from parents to child
+        props:["name", "age"],
+        template: `
+            <div class="user-card">
+                <h2>Welcome to My App</h2>
+                <p>User Name: {{name}}</p>
+                <p>User Age: {{age}}</p>
+            </div>
+            `
+    })
+</script>

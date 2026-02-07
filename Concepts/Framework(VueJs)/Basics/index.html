@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .green {
+            color: green;
+        }
+
+        .yellow {
+            color: rgb(168, 168, 3);
+        }
+    </style>
+    <!-- vue cdn script -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- databinding example -->
+        <h1>{{message}}</h1>
+        <h2 class="green">{{myClass}}</h2>
+        <h2 v-bind:class="myClass">{{myClass}}</h2> example using vue js
+        <h2 class="yellow">{{myArr[0]}}</h2>
+        <!-- If else in vue js -->
+        <h2 v-if="seen">Hello, Am I Visible</h2>
+        v-show is similar to v-if example
+        <h2 v-show="seen">Dikh raha hu kya?</h2>
+        <!-- Note: V-if remove that element but
+         v-show if seen is false then it will just make 
+         display-None but text will be there we can check it
+         by inspection (hide data or delete data from DOM)-->
+
+
+        <!-- Loops -->
+        <ul>
+            <li v-for="course in myArr">{{course}}</li>
+        </ul>
+
+        <!-- Inputfields -->
+
+        <!-- reactivity->
+           U-> F(current state) = F(current values of data property) -->
+        My Favourite movie:<input v-model="movie" type="text">
+        current Value of Movie:{{movie}}
+
+        <br>
+        My Favourite movie: <input v-model="movie" type="text">
+        <button v-on:click="logMovie">log Movie</button>
+        <h4>Current value of movie: {{movie}}</h4>
+
+
+        <h2>{{firstname}}, {{lastname}}</h2>
+        <h2>{{fullname}}</h2>
+
+        My Favourite Movie: <input  v-model="movie" type="text">
+        <h2>sequel: {{sequel}}</h2>
+    </div>
+
+</body>
+<script src="/script.js"></script>
+
+</html>

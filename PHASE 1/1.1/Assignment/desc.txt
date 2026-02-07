@@ -1,2 +1,0 @@
-ASSIGNMENT: Create a product object with name, price, inStock (boolean), 
-and tags (array). Display it.
