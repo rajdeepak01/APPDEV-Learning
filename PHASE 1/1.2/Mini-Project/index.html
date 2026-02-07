@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <p id="counter">Count: 0</p>
+  <button id="increment">+ Increase</button>
+  <button id="decrement">- Decrease</button>
+  <button id="reset">Reset</button>
+  
+  <script>
+    let count = 0;
+    const counterElement = document.getElementById('counter');
+    
+    // Update display function
+    function updateDisplay() {
+      counterElement.textContent = `Count: ${count}`;
+    }
+    
+    // Event handlers
+    document.getElementById('increment').addEventListener('click', () => {
+      count++;
+      updateDisplay();
+    });
+    
+    document.getElementById('decrement').addEventListener('click', () => {
+      count--;
+      updateDisplay();
+    });
+    
+    document.getElementById('reset').addEventListener('click', () => {
+      count = 0;
+      updateDisplay();
+    });
+  </script>
+</body>
+</html>

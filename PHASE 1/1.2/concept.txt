@@ -1,0 +1,18 @@
+1.2 JavaScript: Functions & Events
+CONCEPT: Functions are reusable code blocks. Events are user actions (click, type, etc.).
+
+MINIMAL CODE:
+
+javascript
+// Function declaration
+function greet(name) {
+  return `Hello, ${name}!`;
+}
+
+// Arrow function (modern)
+const add = (a, b) => a + b;
+
+// Event handler
+button.addEventListener('click', function() {
+  console.log('Button clicked!');
+});

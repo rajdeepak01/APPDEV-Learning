@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🍓 Fruit Manager</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Segoe UI", sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .app {
+            background: #ffffff;
+            width: 420px;
+            border-radius: 18px;
+            padding: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        h3 {
+            margin: 18px 0 8px;
+            font-size: 16px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            background: #f8f9ff;
+            padding: 12px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.2s;
+        }
+
+        li:hover {
+            transform: scale(1.02);
+        }
+
+        .fruit-info {
+            font-weight: 500;
+        }
+
+        .actions button {
+            border: none;
+            padding: 6px 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 12px;
+            margin-left: 6px;
+        }
+
+        .edit {
+            background: #ffd166;
+        }
+
+        .delete {
+            background: #ef476f;
+            color: white;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 6px 0;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #667eea;
+        }
+
+        .btn {
+            width: 100%;
+            margin-top: 8px;
+            padding: 10px;
+            border: none;
+            border-radius: 12px;
+            background: #667eea;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #5a6fdc;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #eee;
+            margin: 18px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="app" class="app">
+    <h2>🍓 Fruit Manager</h2>
+
+    <ul>
+        <li v-for="fruit in fruits" :key="fruit.id">
+            <div class="fruit-info">
+                {{ fruit.name }} • ₹{{ fruit.price }}
+            </div>
+            <div class="actions">
+                <button class="edit" @click="selectFruit(fruit)">Edit</button>
+                <button class="delete" @click="deleteFruit(fruit.id)">Delete</button>
+            </div>
+        </li>
+    </ul>
+
+    <hr>
+
+    <h3>Add Fruit</h3>
+    <input type="number" v-model.number="newFruit.id" placeholder="ID">
+    <input type="text" v-model="newFruit.name" placeholder="Name">
+    <input type="number" v-model.number="newFruit.price" placeholder="Price">
+    <button class="btn" @click="addFruit">Add Fruit</button>
+
+    <hr>
+
+    <h3>Update Fruit</h3>
+    <input type="number" v-model.number="editData.id" disabled>
+    <input type="text" v-model="editData.name" placeholder="Name">
+    <input type="number" v-model.number="editData.price" placeholder="Price">
+    <button class="btn" @click="updateFruit">Update Fruit</button>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

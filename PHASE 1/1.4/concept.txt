@@ -1,0 +1,32 @@
+1.4 JavaScript: Promises & async/await
+CONCEPT: Promise = "I promise to give you data later (or an error)." Async/await = cleaner way to handle promises.
+
+MINIMAL CODE:
+
+javascript
+// Creating a promise
+const fetchData = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    const success = true;
+    if (success) {
+      resolve("Data received!");
+    } else {
+      reject("Error: Failed to fetch");
+    }
+  }, 2000);
+});
+
+// Using .then() and .catch()
+fetchData
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
+
+// Using async/await (cleaner!)
+async function getData() {
+  try {
+    const data = await fetchData;
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}

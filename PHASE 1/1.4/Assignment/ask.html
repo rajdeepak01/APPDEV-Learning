@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Weather App</title>
+</head>
+<body>
+
+  <select id="city">
+    <option value="New York">New York</option>
+    <option value="London">London</option>
+    <option value="Tokyo">Tokyo</option>
+  </select>
+
+  <button id="fetch">Get Weather</button>
+  <div id="weather"></div>
+
+  <script>
+    // Simulated API function (returns a promise)
+    function fetchWeather(city) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          const weatherData = {
+            "New York": { temp: 68, condition: "Partly Cloudy" },
+            "London": { temp: 55, condition: "Rainy" },
+            "Tokyo": { temp: 72, condition: "Sunny" }
+          };
+
+          if (weatherData[city]) {
+            resolve(weatherData[city]);
+          } else {
+            reject("City not found");
+          }
+        }, 1500);
+      });
+    }
+
+    // Using async/await
+    document.getElementById('fetch').addEventListener('click', async () => {
+      const weatherDiv = document.getElementById('weather');
+      const city = document.getElementById('city').value;
+
+      weatherDiv.innerHTML = "<p>Loading weather...</p>";
+
+      try {
+        const data = await fetchWeather(city);
+        weatherDiv.innerHTML = `
+          <h3>${city} Weather</h3>
+          <p>Temperature: ${data.temp}°F</p>
+          <p>Condition: ${data.condition}</p>
+        `;
+      } catch (error) {
+        weatherDiv.innerHTML = `<p style="color:red;">Error: ${error}</p>`;
+      }
+    });
+  </script>
+
+</body>
+</html>

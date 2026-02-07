@@ -1,0 +1,30 @@
+PHASE 1 — FRONTEND FOUNDATIONS
+1.1 JavaScript: Variables & Data Types
+CONCEPT: Variables are containers for data. Like labeled boxes in a warehouse.
+
+let: can change (mutable box)
+
+const: cannot change (sealed box)
+
+string: text → "Hello"
+
+number: 10, 3.14
+
+boolean: true/false
+
+array: list → [1, 2, 3]
+
+object: key-value pairs → {name: "Alex", age: 25}
+
+// Variables
+let userName = "Alex";  // Can change
+const birthYear = 1998; // Cannot change
+
+// Data types
+const isOnline = true;  // boolean
+const skills = ["JS", "HTML", "CSS"];  // array
+const profile = {       // object
+  name: userName,
+  age: 2025 - birthYear,
+  isOnline: isOnline
+};

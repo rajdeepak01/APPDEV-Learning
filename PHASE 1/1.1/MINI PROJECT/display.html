@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <div id="profile"></div>
+  
+  <script>
+    // 1. Store profile data
+    const profile = {
+      name: "Sam Rivera",
+      title: "Web Developer",
+      location: "New York",
+      skills: ["JavaScript", "CSS", "Git"]
+    };
+    
+    // 2. Display it
+    const profileDiv = document.getElementById('profile');
+    profileDiv.innerHTML = `
+      <h2>${profile.name}</h2>
+      <p><strong>Title:</strong> ${profile.title}</p>
+      <p><strong>Location:</strong> ${profile.location}</p>
+      <p><strong>Skills:</strong> ${profile.skills.join(", ")}</p>
+    `;
+  </script>
+</body>
+</html>

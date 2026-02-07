@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeout Assignment</title>
+</head>
+<body>
+
+<div id="btn">Loading...</div>
+
+<script>
+    const timerBtn = document.getElementById("btn");
+
+    // 5-second timeout
+    const timeoutId = setTimeout(() => {
+        timerBtn.textContent = "Taking too long..";
+    }, 5000);
+
+    // Simulate successful load (optional)
+    setTimeout(() => {
+        clearTimeout(timeoutId); // stop timeout
+        timerBtn.textContent = "Loaded successfully!";
+        console.log("Task loaded");
+    }, 8000);
+</script>
+
+</body>
+</html>
