@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@2/dist/vue.min.js"></script>
+    <script src="https://unpkg.com/vue-router@3/dist/vue-router.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <router-link to="/home/Raj">Home</router-link>|
+        <router-link to="/home/Raj/dashboard?role=admin">Dashboard</router-link>|
+        <router-link to="/home/raj/register">Register</router-link>|
+        <router-link to="/profile/raj/?role=admin">Profile</router-link>
+        <router-view></router-view>
+    </div>
+</body>
+<script type="module" src="script.js"></script>
+
+</html>
