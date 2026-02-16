@@ -1,0 +1,26 @@
+Week7: Topic: Vuex StateManagement.
+
+What is Vuex, really?
+
+Vuex is a centralized state management pattern for Vue applications.
+
+Think of Vuex as a single shared storage room 🗄️
+All your components can read from it and request changes, but they can’t randomly mess things up.
+
+Why do we even need Vuex?
+
+In small apps:
+
+Components pass data using props
+
+Events bubble up using emit
+
+In medium/large apps, this becomes:
+
+Props drilling 😵
+
+Hard-to-track updates
+
+Bugs from shared data
+
+👉 Vuex solves this by giving one source of truth.
